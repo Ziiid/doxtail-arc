@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { questions, categories, type Answer } from "@/data/questions";
 
 type Answers = Record<string, Answer>;
@@ -46,9 +47,12 @@ export default function CheckPage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full space-y-6">
+        <div className="flex justify-center mb-2">
+          <Image src="/doxtail_logo.png" alt="Doxtail" width={60} height={60} />
+        </div>
         <div className="space-y-2">
           <div className="flex justify-between text-xs text-neutral-500">
-            <span>ARC {currentQ.category} - {catObj.label}</span>
+            <span>ARC {currentQ.category} – {catObj.label}</span>
             <span>{currentIndex + 1} / {questions.length}</span>
           </div>
           <div className="w-full bg-white/10 rounded-full h-1.5">
@@ -68,7 +72,7 @@ export default function CheckPage() {
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-6">
           <div className="space-y-1">
-            <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest">Fraga {categoryIndex} av 3 - {catObj.label}</p>
+            <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest">Fråga {categoryIndex} av 3 – {catObj.label}</p>
             <h2 className="text-xl font-semibold text-white leading-snug">{currentQ.question}</h2>
             {currentQ.help && <p className="text-sm text-neutral-500 mt-2">{currentQ.help}</p>}
           </div>
@@ -92,8 +96,8 @@ export default function CheckPage() {
         </div>
 
         <div className="flex gap-3">
-          <button onClick={goPrev} disabled={currentIndex === 0} className="flex-1 py-3 rounded-xl border border-white/10 text-neutral-400 hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">Foregaende</button>
-          <button onClick={goNext} disabled={!currentAnswer} className="flex-1 py-3 rounded-xl bg-white text-black font-semibold hover:bg-neutral-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">{currentIndex === questions.length - 1 ? "Se mitt resultat" : "Nasta"}</button>
+          <button onClick={goPrev} disabled={currentIndex === 0} className="flex-1 py-3 rounded-xl border border-white/10 text-neutral-400 hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">← Föregående</button>
+          <button onClick={goNext} disabled={!currentAnswer} className="flex-1 py-3 rounded-xl bg-white text-black font-semibold hover:bg-neutral-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">{currentIndex === questions.length - 1 ? "Se mitt resultat →" : "Nästa →"}</button>
         </div>
       </div>
     </main>
