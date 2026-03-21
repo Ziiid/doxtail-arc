@@ -6,7 +6,8 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
       <div className="max-w-2xl w-full text-center space-y-8">
         <div className="space-y-3">
-          <Image src="/doxtail_logo.png" alt="Doxtail" width={72} height={72} className="mx-auto" />
+          <p className="text-sm font-semibold tracking-[0.3em] text-neutral-500 uppercase">Doxtail</p>
+          <Image src="/doxtail_logo.png" alt="Doxtail" width={110} height={110} className="mx-auto" />
           <h1 className="text-5xl font-bold tracking-tight text-white">
             AI Readiness Check
           </h1>

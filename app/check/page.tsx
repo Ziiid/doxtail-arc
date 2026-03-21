@@ -47,8 +47,9 @@ export default function CheckPage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full space-y-6">
-        <div className="flex justify-center mb-2">
-          <Image src="/doxtail_logo.png" alt="Doxtail" width={60} height={60} />
+        <div className="flex flex-col items-center gap-1 mb-2">
+          <p className="text-xs font-semibold tracking-[0.3em] text-neutral-500 uppercase">Doxtail</p>
+          <Image src="/doxtail_logo.png" alt="Doxtail" width={90} height={90} />
         </div>
         <div className="space-y-2">
           <div className="flex justify-between text-xs text-neutral-500">
