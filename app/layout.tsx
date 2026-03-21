@@ -5,7 +5,7 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Readiness Check – CAG Arete",
+  title: "AI Readiness Check – Doxtail",
   description: "Hur redo är din organisation för AI? 30 frågor, 10 kategorier, ett ärligt svar.",
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import {
   Radar,
   RadarChart,
@@ -34,7 +34,7 @@ function categoryScore(catId: string, answers: Record<string, string>) {
 
 function ResultsContent() {
   const params = useSearchParams();
-  const [booked, setBooked] = useState(false);
+
 
   const answers: Record<string, string> = {};
   questions.forEach(q => {
@@ -67,7 +67,7 @@ function ResultsContent() {
         {/* Header */}
         <div className="text-center space-y-3">
           <p className="text-sm font-semibold tracking-[0.3em] text-neutral-500 uppercase">
-            CAG Arete · AI Readiness Check
+            Doxtail · AI Readiness Check
           </p>
           {company && (
             <p className="text-neutral-400 text-sm">{company}</p>
@@ -233,37 +233,10 @@ function ResultsContent() {
 
         {/* CTA */}
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center space-y-4">
-          <h2 className="text-2xl font-bold text-white">
-            Vad betyder ditt resultat – egentligen?
-          </h2>
+          <h2 className="text-2xl font-bold text-white">Gör om checken</h2>
           <p className="text-neutral-400 max-w-md mx-auto text-sm leading-relaxed">
-            En AI Readiness Check ger dig bilden. CAG Arete hjälper dig förstå vad den betyder och vad du bör göra härnäst.
+            Spara ditt resultat och återkom för att mäta din organisations framsteg över tid.
           </p>
-          {booked ? (
-            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 text-sm text-emerald-300 leading-relaxed">
-              Tack för att du kontaktat CAG Arete. Vi kommer kontakta dig inom kort för att boka in en första konsultation rörande ert resultat av AI Readiness Check. Mvh / CAG Arete
-            </div>
-          ) : (
-            <>
-              <button
-                onClick={async () => {
-                  const email = params.get("email");
-                  const name = params.get("contactName");
-                  if (email) {
-                    await fetch("/api/book", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ email, name }),
-                    }).catch(() => {});
-                  }
-                  setBooked(true);
-                }}
-                className="inline-block bg-white text-black font-semibold py-3 px-8 rounded-xl hover:bg-neutral-100 transition-colors cursor-pointer"
-              >
-                Kontakta mig för en genomgång →
-              </button>
-            </>
-          )}
         </div>
 
         <div className="text-center">
